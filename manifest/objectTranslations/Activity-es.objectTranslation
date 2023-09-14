@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>NuevoActividad</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>NuevoActividades</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Divisa de la nuevoactividad</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>activity_currency</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Información personalizada sobre las nuevoactividades</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>activity_custom_info</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Historial de nuevoactividades</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>activity_history</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Datos del historial de nuevoactividades</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>activity_history_data</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Id. de nuevoactividad</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>activity_id</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Información de nuevoactividades</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>activity_information</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Informe de nuevoactividad</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Informes de nuevoactividades</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>activity_report</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Tipo de nuevoactividad</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>activity_type</name>
+    </fields>
+    <gender>Feminine</gender>
+</CustomObjectTranslation>

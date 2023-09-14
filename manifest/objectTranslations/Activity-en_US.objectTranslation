@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>FunActivity</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>FunActivities</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>FunActivity Currency</value>
+        </caseValues>
+        <name>activity_currency</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>FunActivity Custom Info</value>
+        </caseValues>
+        <name>activity_custom_info</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>FunActivity History</value>
+        </caseValues>
+        <name>activity_history</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>FunActivity History Data</value>
+        </caseValues>
+        <name>activity_history_data</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>FunActivity ID</value>
+        </caseValues>
+        <name>activity_id</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>FunActivity Information</value>
+        </caseValues>
+        <name>activity_information</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>FunActivity Report</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>FunActivity Reports</value>
+        </caseValues>
+        <name>activity_report</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>FunActivity Type</value>
+        </caseValues>
+        <name>activity_type</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>
