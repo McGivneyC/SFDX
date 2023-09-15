@@ -1,0 +1,3 @@
+**/classes/*.cls
+**/pages/*.page
+#**/layouts/*.layouts-meta.xml

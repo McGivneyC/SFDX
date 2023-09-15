@@ -1,3 +1,0 @@
-<apex:page lightningStylesheets="true" sidebar="false" tabstyle="CWB_Tool__tab">
-  <c:ConvertProfileToPS ></c:ConvertProfileToPS> 
-</apex:page>

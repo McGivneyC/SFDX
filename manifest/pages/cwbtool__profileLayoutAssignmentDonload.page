@@ -1,3 +1,0 @@
-<apex:page controller="cwbtool.ProfileLayoutController" contenttype="application/x-excel#ProfileLayoutAssignment_{!Now()}.xls" readOnly="true">
-<c:profileLayoutAssignmentDownload mapSchema="{!mapResult}" lstSortedSelectedObjectId="{!lstSortedSelectedObjectId}"/>
-</apex:page>

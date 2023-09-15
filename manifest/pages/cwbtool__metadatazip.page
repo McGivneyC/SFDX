@@ -1,3 +1,0 @@
-<apex:page showheader="false">
-<c:metadataZip ></c:metadataZip>
-</apex:page>

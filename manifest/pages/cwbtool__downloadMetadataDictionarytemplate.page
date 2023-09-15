@@ -1,3 +1,0 @@
-<apex:page controller="cwbtool.MetadataDictionaryController" contenttype="application/x-excel#metadatadictionaryTemplate_{!TODAY()}.xls" readOnly="true" >
-  <c:downloadMetadataDictionarytemplate lstDownload="{!lstDownloadTemplate}"></c:downloadMetadataDictionarytemplate>
-</apex:page>
