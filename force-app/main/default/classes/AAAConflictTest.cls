@@ -6,5 +6,4 @@ public class AAAConflictTest {
  decimal result = AAAConflict.countPlusOne(input);  Test.stopTest(); 
  System.assertEquals(11, result); 
  } 
- /** I am a comment **/
 }
