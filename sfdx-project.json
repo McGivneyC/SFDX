@@ -6,10 +6,21 @@
       "package": "CopadoTipsApp",
       "versionName": "ver 0.1",
       "versionNumber": "0.1.0.NEXT"
+    },
+    {
+      "path": "force-app",
+      "package": "CopadoTipsBanner",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": false,
+      "versionDescription": ""
     }
   ],
   "name": "CopadoSFDX",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "58.0"
+  "sourceApiVersion": "58.0",
+  "packageAliases": {
+    "CopadoTipsBanner": "0Ho5e000000GnNYCA0"
+  }
 }
