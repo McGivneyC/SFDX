@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fieldSets>
+        <label></label>
+        <name>copado__Copado_Header_Fields</name>
+    </fieldSets>
+    <layouts>
+        <layout>OrgDiff Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>copado__Should_be_differents</name>
+    </validationRules>
+</CustomObjectTranslation>

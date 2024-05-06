@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <layouts>
+        <layout>Environment Layout</layout>
+        <sections>
+            <label></label>
+            <section>Compliance</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Page Messages</section>
+        </sections>
+    </layouts>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>cmcSf__Prevent_RunSpecifiedTest_For_Environment</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>copado__Unique_Template_for_promote_and_deploy</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>Install_2G_Package</name>
+    </webLinks>
+    <webLinks>
+        <label></label>
+        <name>copado__Find_Replace_Rule_Editor</name>
+    </webLinks>
+</CustomObjectTranslation>

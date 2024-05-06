@@ -7,4 +7,25 @@
         <shortDescription>testing label</shortDescription>
         <value>This is a Conflict......</value>
     </labels>
+    <labels>
+        <fullName>Custom_Test</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Test</shortDescription>
+        <value>Testing Destructive changes on Custom lable translations</value>
+    </labels>
+    <labels>
+        <fullName>I_m_a_lable</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I&apos;m a /lable/</shortDescription>
+        <value>TestLable</value>
+    </labels>
+    <labels>
+        <fullName>TestLable</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>I&apos;m a /lable/</shortDescription>
+        <value>I&apos;m a /lable/</value>
+    </labels>
 </CustomLabels>
