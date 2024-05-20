@@ -12,12 +12,5 @@
   "name": "CopadoSFDX",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-<<<<<<< Updated upstream
-  "sourceApiVersion": "58.0",
-=======
-  "sourceApiVersion": "60.0",
->>>>>>> Stashed changes
-  "packageAliases": {
-    "CopadoTipsApp": "0Ho5e000000GnNTCA0"
-  }
+  "sourceApiVersion": "58.0"
 }
