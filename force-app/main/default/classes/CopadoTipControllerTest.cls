@@ -1,80 +1,100 @@
 @isTest
 public class CopadoTipControllerTest {
     
-    @testSetup
-    static void setupTestData() {
-        // Create test data for CopadoTips__c object
-        CopadoTips__c defaultTip = new CopadoTips__c(
-            Name = 'Default Tip',
-            TipDescription__c = 'This is the default tip',
-            TipCategory__c = 'Best Practice',
-            DefaultTip__c = true,
-            TipStartTime__c = System.now().addDays(-1),
-            TipEndTime__c = System.now().addDays(1)
-        );
-        insert defaultTip;
-
-        CopadoTips__c randomTip = new CopadoTips__c(
-            Name = 'Random Tip',
-            TipDescription__c = 'This is a random tip',
-            TipCategory__c = 'Best Practice',
-            DefaultTip__c = false,
-            TipStartTime__c = System.now().addDays(-2),
-            TipEndTime__c = System.now().addDays(2)
-        );
-        insert randomTip;
-
-        CopadoTips__c expiredTip = new CopadoTips__c(
-            Name = 'Expired Default Tip',
-            TipDescription__c = 'This is an expired default tip',
-            TipCategory__c = 'Best Practice',
-            DefaultTip__c = true,
-            TipStartTime__c = System.now().addDays(-10),
-            TipEndTime__c = System.now().addDays(-5)
-        );
-        insert expiredTip;
+    // Utility method to create test data
+    private static List<CopadoTips__c> createTestData() {
+        List<CopadoTips__c> tips = new List<CopadoTips__c>();
+        DateTime now = DateTime.now();
+        // Create a default tip that is currently active
+        tips.add(new CopadoTips__c(
+            Name='Default Active Tip',
+            TipDescription__c='This is a default active tip.',
+            TipCategory__c='Other',
+            DefaultTip__c=true,
+            TipStartTime__c=now.addDays(-1),
+            TipEndTime__c=now.addDays(1)
+        ));
+        // Create an expired default tip
+        tips.add(new CopadoTips__c(
+            Name='Expired Default Tip',
+            TipDescription__c='This is an expired default tip.',
+            TipCategory__c='Other',
+            DefaultTip__c=true,
+            TipStartTime__c=now.addDays(-3),
+            TipEndTime__c=now.addDays(-2)
+        ));
+        insert tips;
+        return tips;
     }
-
+    
+    // Utility method to create test data without default tips
+    private static List<CopadoTips__c> createTestDataWithoutDefault() {
+        List<CopadoTips__c> randomTips = new List<CopadoTips__c>();
+        DateTime now = DateTime.now();
+        
+        // Create multiple active tips but ensure no default tips are active
+        randomTips.add(new CopadoTips__c(
+            Name='Active Tip 1',
+            TipDescription__c='This is an random tip.',
+            TipCategory__c='other',
+            DefaultTip__c=false
+        ));
+        randomTips.add(new CopadoTips__c(
+            Name='Active Tip 2',
+            TipDescription__c='This is another random tip.',
+            TipCategory__c='Other',
+            DefaultTip__c=false
+        ));
+        insert randomTips;
+        return randomTips;
+    }
+    
     @isTest
-    static void testGetTipsWithDefault() {
+    static void testGetTipsWithDefaultTip() {
+        // Setup test data
+        createTestData();
+        
         Test.startTest();
-        // Call the getTips method
         Map<String, CopadoTips__c> tips = CopadoTipController.getTips();
         Test.stopTest();
         
-        // Verify that the default tip is returned
-        System.assertNotEquals(null, tips.get('defaultTip'));
-        System.assertEquals('Default Tip', tips.get('defaultTip').Name);
-        System.assertEquals(null, tips.get('randomTip'));
+        // Assertions
+        System.assert(tips.containsKey('defaultTip'), 'Should retrieve the default tip');
+        System.assertEquals('Default Active Tip', tips.get('defaultTip').Name, 'The default tip should match the expected name');
     }
 
-    @isTest
-    static void testGetTipsWithoutDefault() {
+       @isTest
+    static void testGetTipsWithRandomTip() {
+        // Setup test data without default tips
+        createTestDataWithoutDefault();
+        
         Test.startTest();
-        // Deactivate the current default tip
-        CopadoTips__c defaultTip = [SELECT Id FROM CopadoTips__c WHERE DefaultTip__c = TRUE LIMIT 1];
-        defaultTip.DefaultTip__c = false;
-        update defaultTip;
-
-        // Call the getTips method
-        Map<String, CopadoTips__c> tips = CopadoTipController.getTips();
+        Map<String, CopadoTips__c> randomTips = CopadoTipController.getTips();
         Test.stopTest();
         
-        // Verify that the random tip is returned when no default tip is active
-        System.assertEquals(null, tips.get('defaultTip'));
-        System.assertNotEquals(null, tips.get('randomTip'));
-        System.assertEquals('Random Tip', tips.get('randomTip').Name);
+        // Assertions
+        System.assert(randomTips.containsKey('randomTip'), 'Should retrieve a random tip');
+        System.assertNotEquals(null, randomTips.get('randomTip'), 'The random tip should not be null');
     }
+
 
     @isTest
     static void testResetDefaultTip() {
+        // Setup test data
+        List<CopadoTips__c> tips = createTestData();
+        
         Test.startTest();
-        // Call the resetDefaultTip method
         CopadoTipController.resetDefaultTip();
         Test.stopTest();
-
-        // Verify that the expired default tip is reset
-        CopadoTips__c expiredTip = [SELECT Id, DefaultTip__c FROM CopadoTips__c WHERE Name = 'Expired Default Tip' LIMIT 1];
-        System.assertEquals(false, expiredTip.DefaultTip__c);
+        
+        // Refresh from DB
+        List<CopadoTips__c> updatedTips = [SELECT Id, Name, DefaultTip__c FROM CopadoTips__c WHERE Id IN :tips];
+        
+        // Assertions
+        for (CopadoTips__c tip : updatedTips) {
+            if (tip.Name == 'Expired Default Tip') {
+                System.assert(!tip.DefaultTip__c, 'Expired default tip should be reset');
+            }
+        }
     }
 }

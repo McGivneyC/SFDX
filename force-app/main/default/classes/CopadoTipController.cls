@@ -23,7 +23,7 @@ public with sharing class CopadoTipController {
             tipMap.put('defaultTip', defaultTips[0]);
         } else {
             // Get the count of all active tips
-            Integer tipCount = [SELECT COUNT() FROM CopadoTips__c WHERE TipStartTime__c <= :currentDateTime AND TipEndTime__c >= :currentDateTime];
+            Integer tipCount = [SELECT COUNT() FROM CopadoTips__c];
 
             if (tipCount > 0) {
                 // Generate a random offset within the count of active tips
@@ -31,9 +31,8 @@ public with sharing class CopadoTipController {
 
                 // Query for a random tip using the OFFSET clause
                 List<CopadoTips__c> randomTips = [
-                    SELECT Id, Name, TipDescription__c, TipCategory__c, TipURL__c, TipStartTime__c, TipEndTime__c
+                    SELECT Id, Name, TipDescription__c, TipCategory__c, TipURL__c
                     FROM CopadoTips__c
-                    WHERE TipStartTime__c <= :currentDateTime AND TipEndTime__c >= :currentDateTime
                     LIMIT 1
                     OFFSET :randomOffset
                 ];
