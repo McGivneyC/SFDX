@@ -1,19 +1,18 @@
 <template>
     <template if:true={defaultTip}>
         <div class="copado-tip-container">
-            <a href={defaultTip.TipURL__c} target="_blank">
-                <div class="copado-tip-text">Copado Tip - {defaultTip.TipCategory__c}</div>
-            </a>
-            <p>{defaultTip.TipURL__c}</p>
+            <!-- Use a span or div for clickable text styled as a link -->
+            <span class="link-like" onclick={navigateToRecord} data-id={defaultTip.Id}>
+                Copado Tips - {defaultTip.TipCategory__c}
+            </span>
             <lightning-formatted-rich-text class="copado-description-text" value={defaultTip.TipDescription__c}></lightning-formatted-rich-text>
         </div>
     </template>
     <template if:true={randomTip}>
         <div class="copado-tip-container">
-            <a href={randomTip.TipURL__c} target="_blank">
-                <div class="copado-tip-text">Copado Tip - {randomTip.TipCategory__c}</div>
-            </a>
-            <p>{randomTip.TipURL__c}</p>
+            <span class="link-like" onclick={navigateToRecord} data-id={randomTip.Id}>
+                Copado Tips - {randomTip.TipCategory__c}
+            </span>
             <lightning-formatted-rich-text class="copado-description-text" value={randomTip.TipDescription__c}></lightning-formatted-rich-text>
         </div>
     </template>
