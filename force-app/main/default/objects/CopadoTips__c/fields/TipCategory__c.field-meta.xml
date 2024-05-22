@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Tip_Category__c</fullName>
+    <fullName>TipCategory__c</fullName>
     <description>What category does your tip fall under?</description>
     <externalId>false</externalId>
     <inlineHelpText>What category does your tip fall under?</inlineHelpText>
