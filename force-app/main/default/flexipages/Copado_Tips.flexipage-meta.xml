@@ -130,16 +130,6 @@
                 <identifier>RecordDefaultTip_cField</identifier>
             </fieldInstance>
         </itemInstances>
-        <itemInstances>
-            <fieldInstance>
-                <fieldInstanceProperties>
-                    <name>uiBehavior</name>
-                    <value>none</value>
-                </fieldInstanceProperties>
-                <fieldItem>Record.TipURL__c</fieldItem>
-                <identifier>RecordTipURL_cField</identifier>
-            </fieldInstance>
-        </itemInstances>
         <name>Facet-ee41df42-b845-4dd7-85af-436e678ce1d6</name>
         <type>Facet</type>
     </flexiPageRegions>
