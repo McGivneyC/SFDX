@@ -10,10 +10,5 @@
     <columns>TipEndTime__c</columns>
     <columns>TipStartTime__c</columns>
     <filterScope>Everything</filterScope>
-    <filters>
-        <field>RECORDTYPE</field>
-        <operation>equals</operation>
-        <value>CopadoTips__c.Master</value>
-    </filters>
     <label>All</label>
 </ListView>
