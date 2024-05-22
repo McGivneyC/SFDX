@@ -27,8 +27,9 @@
 }
 
 .link-like {
-    cursor: grab;
+    cursor: pointer;
     color: #0070d2; /* Salesforce blue link color */
     text-decoration: underline;
+    display: block;
 }
 /* Optional: Add additional styles as needed */
