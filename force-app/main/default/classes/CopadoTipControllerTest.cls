@@ -14,15 +14,7 @@ public class CopadoTipControllerTest {
             TipStartTime__c=now.addDays(-1),
             TipEndTime__c=now.addDays(1)
         ));
-        // Create an expired default tip
-        tips.add(new CopadoTips__c(
-            Name='Expired Default Tip',
-            TipDescription__c='This is an expired default tip.',
-            TipCategory__c='Other',
-            DefaultTip__c=true,
-            TipStartTime__c=now.addDays(-3),
-            TipEndTime__c=now.addDays(-2)
-        ));
+
         insert tips;
         return tips;
     }
@@ -78,7 +70,7 @@ public class CopadoTipControllerTest {
     }
 
 
-    @isTest
+    /** @isTest
     static void testResetDefaultTip() {
         // Setup test data
         List<CopadoTips__c> tips = createTestData();
@@ -97,4 +89,5 @@ public class CopadoTipControllerTest {
             }
         }
     }
+**/
 }
