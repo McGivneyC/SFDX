@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Past_Times</fullName>
+    <active>true</active>
+    <description>Prevent users from inserting TipEndTime__c value that is in the past.</description>
+    <errorConditionFormula>OR(
+    AND(
+        NOT(ISBLANK(TipEndTime__c)),
+        TipEndTime__c &lt; NOW()
+    )
+)</errorConditionFormula>
+    <errorMessage>The Display End Time date or time has been set in the past, please set a time in the future to display this tip.</errorMessage>
+</ValidationRule>

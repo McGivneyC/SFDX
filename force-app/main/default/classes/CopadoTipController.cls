@@ -3,26 +3,32 @@ public with sharing class CopadoTipController {
     public static Map<String, CopadoTips__c> getTips() {
         Map<String, CopadoTips__c> tipMap = new Map<String, CopadoTips__c>();
         
-        // Get the current system time
-        Datetime currentDateTime = Datetime.now();
+        // Get the current DateTime
+        DateTime nowUTC = System.now();
 
-        // Debugging the current system time
-        System.debug('Current system time in the desired format: ' + currentDateTime.format('yyyy-MM-dd\'T\'HH:mm:ss.SSSZ'));
+        // Format it to a string in UTC
+        String nowAsUTCString = nowUTC.format('yyyy-MM-dd\'T\'HH:mm:ss\'Z\'', 'GMT');
 
+        System.debug('Current DateTime in UTC as a string: ' + nowAsUTCString);
+
+        //DateTime nowUTC = DateTime.parse(nowAsUTCString);
+        
+        System.debug('Current DateTime in UTC: ' + nowUTC);
+        
         // Query to get the default Copado Tip
         List<CopadoTips__c> defaultTips = [
             SELECT Id, Name, TipDescription__c, TipCategory__c, DefaultTip__c, TipStartTime__c, TipEndTime__c, TipURL__c
             FROM CopadoTips__c
             WHERE DefaultTip__c = TRUE
-            AND TipStartTime__c <= :currentDateTime
-            AND TipEndTime__c >= :currentDateTime
+            AND TipStartTime__c <= :nowUTC
+            AND TipEndTime__c >= :nowUTC
             LIMIT 1
         ];
 
         if (!defaultTips.isEmpty()) {
             tipMap.put('defaultTip', defaultTips[0]);
         } else {
-            // Get the count of all copado tips
+            // Get the count of all Copado tips
             Integer tipCount = [SELECT COUNT() FROM CopadoTips__c];
 
             if (tipCount > 0) {
@@ -48,11 +54,11 @@ public with sharing class CopadoTipController {
 
     @AuraEnabled
     public static void resetDefaultTip() {
-        // Get the current system time
+        // Get the current UTC system time
         Datetime currentDateTime = Datetime.now();
 
-        // Debugging the current system time
-        System.debug('Current system time in the desired format: ' + currentDateTime.format('yyyy-MM-dd\'T\'HH:mm:ss.SSSZ'));
+        // Debugging the current UTC system time
+        System.debug('Current UTC system time: ' + currentDateTime);
 
         List<CopadoTips__c> defaultTips = [
             SELECT Id, DefaultTip__c
@@ -67,5 +73,7 @@ public with sharing class CopadoTipController {
             }
             update defaultTips;
         }
+         // Debugging the resetDefaultTip method
+        System.debug('Current UTC system time: ' + defaultTips);
     }
 }
