@@ -52,7 +52,10 @@ public with sharing class CopadoTipController {
         return tipMap;
     }
 
-    @AuraEnabled
+   /**
+    * 5/24/24 - This method was going to be called by a button on the CopadoTip layout but now we handle the default tip reset with the
+    * CopadoTipTrigger and helpers.
+    *  @AuraEnabled
     public static void resetDefaultTip() {
         // Get the current UTC system time
         Datetime currentDateTime = Datetime.now();
@@ -76,4 +79,5 @@ public with sharing class CopadoTipController {
          // Debugging the resetDefaultTip method
         System.debug('Current UTC system time: ' + defaultTips);
     }
+**/
 }
