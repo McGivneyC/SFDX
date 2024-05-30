@@ -1,4 +1,4 @@
-public with sharing class CopadoTipController {    
+public with sharing class CopadoTipController {
     @AuraEnabled(cacheable=true)
     public static Map<String, CopadoTips__c> getTips() {
         Map<String, CopadoTips__c> tipMap = new Map<String, CopadoTips__c>();
