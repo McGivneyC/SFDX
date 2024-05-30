@@ -45,3 +45,15 @@ $RECYCLE.BIN/
 **/venv/
 
 .copado
+
+# Copado
+/.sfdx
+copado_root
+/.vscode
+**config
+/.prettierignore
+/.prettierrc
+force-app/main/default/lwc/.eslintrc.json
+force-app/main/default/lwc/jsconfig.json
+sfdx-project.json
+README.md
