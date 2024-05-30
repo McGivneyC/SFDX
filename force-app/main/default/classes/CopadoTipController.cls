@@ -16,7 +16,7 @@ public with sharing class CopadoTipController {
             WHERE DefaultTip__c = TRUE
             AND TipStartTime__c <= :currentDateTime
             AND TipEndTime__c >= :currentDateTime
-            LIMIT 1
+            LIMIT 1 WITH SECURITY_ENFORCED
         ];
 
         if (!defaultTips.isEmpty()) {
@@ -34,7 +34,7 @@ public with sharing class CopadoTipController {
                     SELECT Id, Name, TipDescription__c, TipCategory__c, TipURL__c
                     FROM CopadoTips__c
                     LIMIT 1
-                    OFFSET :randomOffset
+                    OFFSET :randomOffset WITH SECURITY_ENFORCED
                 ];
 
                 if (!randomTips.isEmpty()) {
