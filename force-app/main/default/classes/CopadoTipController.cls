@@ -4,10 +4,10 @@ public with sharing class CopadoTipController {
         Map<String, CopadoTips__c> tipMap = new Map<String, CopadoTips__c>();
         
         // Get the current system time
-        Datetime currentDateTime = Datetime.now();
+        // Datetime currentDateTime = Datetime.now();
 
-        // Debugging the current system time
-        System.debug('Current system time in the desired format: ' + currentDateTime.format('yyyy-MM-dd\'T\'HH:mm:ss.SSSZ'));
+        // Debugging the current system time as a string
+        // System.debug('Current system time in the desired format as a string: ' + currentDateTime.format('yyyy-MM-dd\'T\'HH:mm:ss.SSSZ'));
 
         // Query to get the default Copado Tip
         List<CopadoTips__c> defaultTips = [
@@ -46,6 +46,9 @@ public with sharing class CopadoTipController {
         return tipMap;
     }
 
+    /* 
+     * 5/24/24 - This method was going to be called by a button on the CopadoTip layout but now we handle the default tip reset with the
+    * CopadoTipTrigger and helpers.
     @AuraEnabled
     public static void resetDefaultTip() {
         // Get the current system time
@@ -68,4 +71,5 @@ public with sharing class CopadoTipController {
             update defaultTips;
         }
     }
+    **/
 }
