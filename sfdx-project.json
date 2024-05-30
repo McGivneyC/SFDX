@@ -2,7 +2,19 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "default": true
+      "package": "CopadoTips",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": true,
+      "versionDescription": ""
+    },
+    {
+      "path": "manual-task-enforcer",
+      "package": "ManualTaskEnforcer",
+      "versionName": "ver 0.1",
+      "versionNumber": "0.1.0.NEXT",
+      "default": false,
+      "versionDescription": "" 
     }
   ],
   "name": "CopadoSFDX",
