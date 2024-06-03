@@ -52,8 +52,8 @@ private class CopadoTipControllerTest {
     }
 
  private static copado__User_Story__c setupUserStoryAndProject() {
-    copadoccmint__Copado_Integration_Setting__c ItegrationSetting = new copadoccmint__Copado_Integration_Setting__c(Name = 'Test Integration', copadoccmint__Named_Credential__c = 'Test', copadoccmint__External_System__c = 'Jira');
-    insert ItegrationSetting;
+    copadoccmint__Copado_Integration_Setting__c itegrationSetting = new copadoccmint__Copado_Integration_Setting__c(Name = 'Test Integration', copadoccmint__Named_Credential__c = 'Test', copadoccmint__External_System__c = 'Jira');
+    insert itegrationSetting;
      
     copado__Project__c project = new copado__Project__c(Name = 'Test Project', copadoccmint__Copado_Integration_Setting__c = ItegrationSetting.Id);
     insert project;
