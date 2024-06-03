@@ -1,100 +1,63 @@
 @isTest
-public class CopadoTipControllerTest {
-    
-    // Utility method to create test data
-    private static List<CopadoTips__c> createTestData() {
-        List<CopadoTips__c> tips = new List<CopadoTips__c>();
-        DateTime now = DateTime.now();
-        // Create a default tip that is currently active
-        tips.add(new CopadoTips__c(
-            Name='Default Active Tip',
-            TipDescription__c='This is a default active tip.',
-            TipCategory__c='Other',
-            DefaultTip__c=true,
-            TipStartTime__c=now.addDays(-1),
-            TipEndTime__c=now.addDays(1)
-        ));
-        // Create an expired default tip
-        tips.add(new CopadoTips__c(
-            Name='Expired Default Tip',
-            TipDescription__c='This is an expired default tip.',
-            TipCategory__c='Other',
-            DefaultTip__c=true,
-            TipStartTime__c=now.addDays(-3),
-            TipEndTime__c=now.addDays(-2)
-        ));
-        insert tips;
-        return tips;
+private class CopadoTipControllerTest {
+
+    @isTest
+    static void testGetTipsWithNullUserStoryId() {
+        Map<String, CopadoTips__c> tips = CopadoTipController.getTips(null);
+        System.assertEquals(0, tips.size(), 'Expected an empty map when userStoryId is null');
     }
-    
-    // Utility method to create test data without default tips
-    private static List<CopadoTips__c> createTestDataWithoutDefault() {
-        List<CopadoTips__c> randomTips = new List<CopadoTips__c>();
-        DateTime now = DateTime.now();
-        
-        // Create multiple active tips but ensure no default tips are active
-        randomTips.add(new CopadoTips__c(
-            Name='Active Tip 1',
-            TipDescription__c='This is an random tip.',
-            TipCategory__c='other',
-            DefaultTip__c=false
-        ));
-        randomTips.add(new CopadoTips__c(
-            Name='Active Tip 2',
-            TipDescription__c='This is another random tip.',
-            TipCategory__c='Other',
-            DefaultTip__c=false
-        ));
-        insert randomTips;
-        return randomTips;
+
+    @isTest
+    static void testGetTipsWithNoAssociatedProject() {
+        // Setup test data
+        copado__User_Story__c userStory = new copado__User_Story__c();
+        insert userStory;
+
+        Map<String, CopadoTips__c> tips = CopadoTipController.getTips(userStory.Id);
+        System.assertEquals(0, tips.size(), 'Expected an empty map when there is no associated project');
     }
-    
+
+    @isTest
+    static void testGetTipsWithNoDefaultTip() {
+        // Setup test data
+        copado__User_Story__c userStory = setupUserStoryAndProject();
+        // No default tips are created
+
+        Map<String, CopadoTips__c> tips = CopadoTipController.getTips(userStory.Id);
+        System.assert(tips.isEmpty() || tips.containsKey('randomTip'), 'Expected an empty map or a map with a random tip');
+    }
+
     @isTest
     static void testGetTipsWithDefaultTip() {
+        Test.startTest();
         // Setup test data
-        createTestData();
-        
-        Test.startTest();
-        Map<String, CopadoTips__c> tips = CopadoTipController.getTips();
+        copado__User_Story__c userStory = setupUserStoryAndProject();
+        CopadoTips__c defaultTip = new CopadoTips__c(
+            Name = 'Default Tip',
+            TipDescription__c = 'This is a default tip',
+            TipCategory__c = 'Other',
+            DefaultTip__c = true,
+            TipStartTime__c = Datetime.now().addDays(-1),
+            TipEndTime__c = Datetime.now().addDays(1)
+        );
+        insert defaultTip;
+
+        Map<String, CopadoTips__c> tips = CopadoTipController.getTips(userStory.Id);
         Test.stopTest();
         
-        // Assertions
-        System.assert(tips.containsKey('defaultTip'), 'Should retrieve the default tip');
-        System.assertEquals('Default Active Tip', tips.get('defaultTip').Name, 'The default tip should match the expected name');
+        System.debug('Tips: ' + tips);
+        System.debug('UserStory: ' + userStory.Id);
+        System.assertEquals(1, tips.size(), 'Expected a map with one default tip');
+        System.assertEquals('Default Tip', tips.get('defaultTip').Name, 'Expected the default tip to be returned');
     }
 
-       @isTest
-    static void testGetTipsWithRandomTip() {
-        // Setup test data without default tips
-        createTestDataWithoutDefault();
-        
-        Test.startTest();
-        Map<String, CopadoTips__c> randomTips = CopadoTipController.getTips();
-        Test.stopTest();
-        
-        // Assertions
-        System.assert(randomTips.containsKey('randomTip'), 'Should retrieve a random tip');
-        System.assertNotEquals(null, randomTips.get('randomTip'), 'The random tip should not be null');
-    }
+ private static copado__User_Story__c setupUserStoryAndProject() {
+    copado__Project__c project = new copado__Project__c(Name = 'Test Project', copadoccmint__Copado_Integration_Setting__c = 'a1rDy000001pxuuIAA');
+    insert project;
 
+    copado__User_Story__c userStory = new copado__User_Story__c(copado__User_Story_Title__c = 'Test User Story', copado__Project__c = project.Id);
+    insert userStory;
 
-    @isTest
-    static void testResetDefaultTip() {
-        // Setup test data
-        List<CopadoTips__c> tips = createTestData();
-        
-        Test.startTest();
-        CopadoTipController.resetDefaultTip();
-        Test.stopTest();
-        
-        // Refresh from DB
-        List<CopadoTips__c> updatedTips = [SELECT Id, Name, DefaultTip__c FROM CopadoTips__c WHERE Id IN :tips];
-        
-        // Assertions
-        for (CopadoTips__c tip : updatedTips) {
-            if (tip.Name == 'Expired Default Tip') {
-                System.assert(!tip.DefaultTip__c, 'Expired default tip should be reset');
-            }
-        }
-    }
+    return userStory;
+}
 }

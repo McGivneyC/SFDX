@@ -1,42 +1,45 @@
 public with sharing class CopadoTipController {
     @AuraEnabled(cacheable=true)
-    public static Map<String, CopadoTips__c> getTips() {
-        Map<String, CopadoTips__c> tipMap = new Map<String, CopadoTips__c>();
+    public static Map<String, CopadoTips__c> getTips(Id userStoryId) {
+        Map<String, CopadoTips__c> tipMap = new Map<String, CopadoTips__c>(); // Initialize once
+
+        if (userStoryId == null) {
+            return tipMap; // Return the initialized empty map
+        }
+
+        List<copado__User_Story__c> userStories = [
+            SELECT copado__Project__r.Id FROM copado__User_Story__c WHERE Id = :userStoryId LIMIT 1
+        ];
+        System.debug('User Stories fetched: ' + userStories);
         
-        //Get the current system time
-        Datetime currentDateTime = Datetime.now();
+        if (userStories.isEmpty()) {
+            return tipMap; // Return the initialized empty map
+        }
 
-        // Debugging the current system time as a string
-        // System.debug('Current system time in the desired format as a string: ' + currentDateTime.format('yyyy-MM-dd\'T\'HH:mm:ss.SSSZ'));
+        Id projectId = userStories[0].copado__Project__r.Id;
+        Datetime currentSystemTime = System.now();
 
-        // Query to get the default Copado Tip
         List<CopadoTips__c> defaultTips = [
-            SELECT Id, Name, TipDescription__c, TipCategory__c, DefaultTip__c, TipStartTime__c, TipEndTime__c, TipURL__c
+            SELECT Id, Name, TipDescription__c, TipCategory__c, DefaultTip__c, TipStartTime__c, TipEndTime__c, TipURL__c, Project__c
             FROM CopadoTips__c
-            WHERE DefaultTip__c = TRUE
-            AND TipStartTime__c <= :currentDateTime
-            AND TipEndTime__c >= :currentDateTime
+            WHERE Project__c = :projectId 
+            AND DefaultTip__c = TRUE 
+            AND TipStartTime__c <= :currentSystemTime 
+            AND TipEndTime__c >= :currentSystemTime 
+            WITH SECURITY_ENFORCED 
             LIMIT 1
         ];
 
         if (!defaultTips.isEmpty()) {
             tipMap.put('defaultTip', defaultTips[0]);
         } else {
-            // Get the count of all active tips
-            Integer tipCount = [SELECT COUNT() FROM CopadoTips__c];
-
+            Integer tipCount = [SELECT COUNT() FROM CopadoTips__c WHERE Project__c = :projectId];
             if (tipCount > 0) {
-                // Generate a random offset within the count of active tips
                 Integer randomOffset = Integer.valueOf(Math.floor(Math.random() * tipCount));
-
-                // Query for a random tip using the OFFSET clause
                 List<CopadoTips__c> randomTips = [
-                    SELECT Id, Name, TipDescription__c, TipCategory__c, TipURL__c
-                    FROM CopadoTips__c
-                    LIMIT 1
-                    OFFSET :randomOffset
+                    SELECT Id, Name, TipDescription__c, TipCategory__c, TipURL__c, Project__c
+                    FROM CopadoTips__c WHERE Project__c = :projectId WITH SECURITY_ENFORCED LIMIT 1 OFFSET :randomOffset
                 ];
-
                 if (!randomTips.isEmpty()) {
                     tipMap.put('randomTip', randomTips[0]);
                 }
@@ -45,5 +48,4 @@ public with sharing class CopadoTipController {
 
         return tipMap;
     }
-
 }
