@@ -8,7 +8,7 @@ public with sharing class CopadoTipController {
         }
 
         List<copado__User_Story__c> userStories = [
-            SELECT copado__Project__r.Id FROM copado__User_Story__c WHERE Id = :userStoryId LIMIT 1
+            SELECT copado__Project__r.Id FROM copado__User_Story__c WHERE Id = :userStoryId WITH SECURITY_ENFORCED LIMIT 1
         ];
         System.debug('User Stories fetched: ' + userStories);
         
@@ -33,7 +33,7 @@ public with sharing class CopadoTipController {
         if (!defaultTips.isEmpty()) {
             tipMap.put('defaultTip', defaultTips[0]);
         } else {
-            Integer tipCount = [SELECT COUNT() FROM CopadoTips__c WHERE Project__c = :projectId];
+            Integer tipCount = [SELECT COUNT() FROM CopadoTips__c WHERE Project__c = :projectId WITH SECURITY_ENFORCED ];
             if (tipCount > 0) {
                 Integer randomOffset = Integer.valueOf(Math.floor(Math.random() * tipCount));
                 List<CopadoTips__c> randomTips = [
