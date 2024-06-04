@@ -1,4 +1,4 @@
-public class TriggerHandlerCT {
+public with sharing class TriggerHandlerCT {
     private static boolean isRecursive = false;
     private static boolean cleanupJobEnqueued = false;
 

@@ -1,4 +1,4 @@
-public class CopadoTipResetJob implements Queueable {
+public with sharing class CopadoTipResetJob implements Queueable {
     public void execute(QueueableContext context) {
         
         Datetime nowUtc = Datetime.now();
@@ -6,7 +6,9 @@ public class CopadoTipResetJob implements Queueable {
         List<CopadoTips__c> tipsToReset = [
             SELECT Id, DefaultTip__c, TipEndTime__c
             FROM CopadoTips__c
-            WHERE DefaultTip__c = true AND TipEndTime__c < :nowUtc
+            WHERE DefaultTip__c = true 
+            AND TipEndTime__c < :nowUtc
+            WITH SECURITY_ENFORCED 
         ];
 
         if (!tipsToReset.isEmpty()) {
