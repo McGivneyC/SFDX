@@ -2,6 +2,7 @@
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>All</fullName>
     <columns>NAME</columns>
+    <columns>Project__c</columns>
     <columns>DefaultTip__c</columns>
     <columns>TipCount__c</columns>
     <columns>TipCategory__c</columns>
