@@ -1,17 +1,12 @@
 trigger CopadoTipTrigger on CopadoTips__c (before insert, before update) {
-    if (Trigger.isBefore && (Trigger.isInsert || Trigger.isUpdate) && !TriggerHandlerCT.isTriggerRecursive()) {
-        // Set trigger recursion flag
-        TriggerHandlerCT.setTriggerRecursive(true); 
-        
-        // Reset trigger recursion flag
-        TriggerHandlerCT.setTriggerRecursive(false);
-        
-        // Step 1: Prevent users from marking more than one CopadoTips__c record as default
+    if (Trigger.isBefore) {
+        // Handle setting and resetting the recursion flag within the handler to ensure it's always correctly managed
         TriggerHandlerCT.handleCopadoTips(Trigger.new, Trigger.oldMap);
-        
-        // Step 2: Clean up old Copado Tip records where DefaultTip__c = true and TipEndTime__c < currentDateTime
-        CopadoTipController.resetDefaultTip();
-        
-        
+
+        // Enqueue job to clean up old default tips only once per transaction
+        if (!TriggerHandlerCT.hasCleanupJobBeenEnqueued()) {
+            System.enqueueJob(new CopadoTipResetJob());
+            TriggerHandlerCT.setCleanupJobEnqueued(true);
+        }
     }
 }

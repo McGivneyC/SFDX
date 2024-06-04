@@ -33,7 +33,7 @@ public with sharing class CopadoTipController {
         if (!defaultTips.isEmpty()) {
             tipMap.put('defaultTip', defaultTips[0]);
         } else {
-            Integer tipCount = [SELECT COUNT() FROM CopadoTips__c WHERE Project__c = :projectId WITH SECURITY_ENFORCED ];
+            Integer tipCount = [SELECT COUNT() FROM CopadoTips__c WHERE Project__c = :projectId WITH SECURITY_ENFORCED];
             if (tipCount > 0) {
                 Integer randomOffset = Integer.valueOf(Math.floor(Math.random() * tipCount));
                 List<CopadoTips__c> randomTips = [
