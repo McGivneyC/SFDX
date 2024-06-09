@@ -11,7 +11,7 @@
 }
 
 /* Decription Text styles */
-.copado-description-text {
+.copado-tips-description {
     font-size: 12px;
     font-weight: normal;
     color: #333; /* Text color */
@@ -19,7 +19,7 @@
 }
 
 /* Copado Tip Text styles */
-.copado-tip-text {
+.copado-tips-header {
     font-size: 16px;
     font-weight: bold;
     color: #2371f0; /* Text color */
