@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RecordType xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Contractor</fullName>
+    <active>true</active>
+    <description>Testing Data Deploy: This Record Type will act as our test record.</description>
+    <label>Contractor</label>
+    <picklistValues>
+        <picklist>Delete_Items__c</picklist>
+        <values>
+            <fullName>Test1</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test2</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test3</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Test4</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+</RecordType>
