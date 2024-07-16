@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#0070D2</headerColor>
+        <logo>ebikeslogo</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>Logo Test</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
+    <label>Logo Test</label>
+    <navType>Standard</navType>
+    <tabs>copado__Account_Summary</tabs>
+    <tabs>standard-Account</tabs>
+    <tabs>standard-CmsExperiences</tabs>
+    <tabs>standard-WaveHomeLightning</tabs>
+    <tabs>standard-AppLauncher</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Logo_Test_UtilityBar</utilityBar>
+</CustomApplication>
