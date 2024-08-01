@@ -30,6 +30,10 @@
                 <behavior>Edit</behavior>
                 <field>New_Copado_Field__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>TestingErrors__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
