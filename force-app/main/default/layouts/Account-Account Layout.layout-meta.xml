@@ -28,7 +28,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Delete_Items__c</field>
+                <field>New_Copado_Field__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
