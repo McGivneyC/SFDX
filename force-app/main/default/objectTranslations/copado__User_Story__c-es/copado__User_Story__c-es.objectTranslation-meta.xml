@@ -80,7 +80,7 @@
         <label></label>
         <name>copado__Work_Manager_Relations</name>
     </fieldSets>
-    <gender>Feminine</gender>
+    <gender><!-- Feminine --></gender>
     <nameFieldLabel></nameFieldLabel>
     <quickActions>
         <aspect>Master</aspect>
