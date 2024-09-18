@@ -1,0 +1,14 @@
+/* manualTaskEnforcer.css */
+
+/* Decription Text styles */
+.manual-task-description {
+    font-size: 12px;
+    font-weight: normal;
+    color: #333; /* Text color */
+    display: block;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Optional: Add additional styles as needed */
+
