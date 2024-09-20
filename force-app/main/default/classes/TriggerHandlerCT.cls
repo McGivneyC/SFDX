@@ -1,4 +1,5 @@
-public class TriggerHandlerCT {
+public with sharing class TriggerHandlerCT {
+    //test us bundle unit test
     private static boolean isRecursive = false;
     private static boolean cleanupJobEnqueued = false;
 
@@ -18,30 +19,42 @@ public class TriggerHandlerCT {
         cleanupJobEnqueued = value;
     }
 
- public static void handleCopadoTips(List<CopadoTips__c> newTips, Map<Id, CopadoTips__c> oldMap) {
+    public static void handleCopadoTips(List<CopadoTips__c> newTips, Map<Id, CopadoTips__c> oldMap) {
         if (isRecursive) {
             return;
         }
         try {
             isRecursive = true;
 
-            // Find if there's any new default tip being set
-            Id defaultTipId = null;
+            // Extract IDs from newTips into a Set
+            Set<Id> newTipIds = new Set<Id>();
+            for (CopadoTips__c tip : newTips) {
+                newTipIds.add(tip.Id);
+            }
+
+            // Query existing default tips excluding the new ones
+            Map<Id, CopadoTips__c> defaultTipsByProject = new Map<Id, CopadoTips__c>();
+            for (CopadoTips__c tip : [SELECT Id, Project__c, DefaultTip__c FROM CopadoTips__c WHERE DefaultTip__c = true AND Id NOT IN :newTipIds WITH SECURITY_ENFORCED]) {
+                defaultTipsByProject.put(tip.Project__c, tip);
+            }
+
             for (CopadoTips__c tip : newTips) {
                 if (tip.DefaultTip__c) {
-                    if (defaultTipId != null) {
-                        tip.addError('Only one CopadoTip record can be set as default.');
+                    CopadoTips__c existingDefault = defaultTipsByProject.get(tip.Project__c);
+                    if (existingDefault != null && existingDefault.Id != tip.Id) {
+                        tip.addError('Only one default CopadoTip record can be set per project.');
                     } else {
-                        defaultTipId = tip.Id;
+                        // Update the map to reflect the new default
+                        defaultTipsByProject.put(tip.Project__c, tip);
                     }
                 }
             }
 
-            // Check against all other existing default tips if a new default is being set
-            if (defaultTipId != null) {
-                for (CopadoTips__c existingTip : [SELECT Id, DefaultTip__c FROM CopadoTips__c WHERE DefaultTip__c = true AND Id != :defaultTipId]) {
-                    existingTip.DefaultTip__c = false;
-                    update existingTip;
+            // Reset other defaults if necessary
+            for (CopadoTips__c tip : defaultTipsByProject.values()) {
+                if (tip.DefaultTip__c && !newTipIds.contains(tip.Id)) {
+                    tip.DefaultTip__c = false;
+                    update tip;
                 }
             }
         } finally {
