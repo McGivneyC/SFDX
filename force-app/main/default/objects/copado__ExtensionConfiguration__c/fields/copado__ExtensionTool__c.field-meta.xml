@@ -2,7 +2,6 @@
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>copado__ExtensionTool__c</fullName>
     <deprecated>false</deprecated>
-    <externalId>false</externalId>
     <label>Extension Tool</label>
     <required>true</required>
     <trackTrending>false</trackTrending>
@@ -30,6 +29,16 @@
                 <fullName>BackPromotionChecker</fullName>
                 <default>false</default>
                 <label>BackPromotionChecker</label>
+            </value>
+            <value>
+                <fullName>CCH</fullName>
+                <default>false</default>
+                <label>CCH</label>
+            </value>
+            <value>
+                <fullName>Apex Tests</fullName>
+                <default>false</default>
+                <label>Apex Tests</label>
             </value>
         </valueSetDefinition>
     </valueSet>

@@ -2,13 +2,8 @@
 <GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <customValue>
         <fullName>None</fullName>
-        <default>false</default>
+        <default>true</default>
         <label>None</label>
-    </customValue>
-    <customValue>
-        <fullName>New</fullName>
-        <default>false</default>
-        <label>New</label>
     </customValue>
     <customValue>
         <fullName>Copado Robotic Testing</fullName>
@@ -32,8 +27,24 @@
     </customValue>
     <customValue>
         <fullName>BackPromotionChecker</fullName>
-        <default>true</default>
+        <default>false</default>
         <label>BackPromotionChecker</label>
+    </customValue>
+    <customValue>
+        <fullName>Apex Tests</fullName>
+        <default>false</default>
+        <label>Apex Tests</label>
+    </customValue>
+    <customValue>
+        <fullName>CCH</fullName>
+        <default>false</default>
+        <label>CCH</label>
+    </customValue>
+    <customValue>
+        <fullName>New</fullName>
+        <default>false</default>
+        <isActive>false</isActive>
+        <label>New</label>
     </customValue>
     <masterLabel>Copado Test Tool</masterLabel>
     <sorted>false</sorted>
