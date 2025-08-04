@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MutingPermissionSet xmlns="http://soap.sforce.com/2006/04/metadata"
+      xmlns:n1="http://www.w3.org/2001/XMLSchema-instance">
+    <label n1:nil="true" />
+    <label>Copado Quality Manager Muted</label>
+</MutingPermissionSet>
