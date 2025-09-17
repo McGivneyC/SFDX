@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Amount_Required_for_Advanced_Stages</fullName>
+    <active>true</active>
+    <description>Requires an Amount to be entered when the opportunity reaches advanced stages (Value Proposition or later)</description>
+    <errorConditionFormula>AND(
+    ISPICKVAL(StageName, &quot;Value Proposition&quot;) ||
+    ISPICKVAL(StageName, &quot;Id. Decision Makers&quot;) ||
+    ISPICKVAL(StageName, &quot;Perception Analysis&quot;) ||
+    ISPICKVAL(StageName, &quot;Proposal/Price Quote&quot;) ||
+    ISPICKVAL(StageName, &quot;Negotiation/Review&quot;) ||
+    ISPICKVAL(StageName, &quot;Closed Won&quot;),
+    ISNULL(Amount)
+)</errorConditionFormula>
+    <errorMessage>Amount is required when the opportunity stage is Value Proposition or later.</errorMessage>
+</ValidationRule>
