@@ -61,4 +61,9 @@
         <default>false</default>
         <label>Social Media Test</label>
     </standardValue>
+    <standardValue>
+        <fullName>Karen Demo</fullName>
+        <default>false</default>
+        <label>Karen Demo</label>
+    </standardValue>
 </StandardValueSet>
