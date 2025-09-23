@@ -34,7 +34,7 @@
             <default>false</default>
         </values>
         <values>
-            <fullName>Test4</fullName>
+            <fullName>Test4%C2%A0</fullName>
             <default>false</default>
         </values>
     </picklistValues>
