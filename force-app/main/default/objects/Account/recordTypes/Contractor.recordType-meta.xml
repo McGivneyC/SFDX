@@ -5,6 +5,21 @@
     <description>Testing Data Deploy: This Record Type will act as our test record.</description>
     <label>Contractor</label>
     <picklistValues>
+        <picklist>Custom_Picklist__c</picklist>
+        <values>
+            <fullName>Maybe</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>No</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>Yep</fullName>
+            <default>false</default>
+        </values>
+    </picklistValues>
+    <picklistValues>
         <picklist>Delete_Items__c</picklist>
         <values>
             <fullName>Test1</fullName>
