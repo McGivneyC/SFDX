@@ -28,11 +28,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>New_Copado_Field__c</field>
+                <field>Field_C__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>TestingErrors__c</field>
+                <field>Custom_Picklist__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -91,6 +91,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Field_A__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
