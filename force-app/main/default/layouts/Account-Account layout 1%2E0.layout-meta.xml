@@ -24,6 +24,10 @@
                 <behavior>Edit</behavior>
                 <field>AccountNumber</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Text_Area__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
