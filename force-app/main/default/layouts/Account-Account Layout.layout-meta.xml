@@ -70,6 +70,10 @@
                 <behavior>Edit</behavior>
                 <field>Ownership</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>BundleUS__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -109,6 +113,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Field_A__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
