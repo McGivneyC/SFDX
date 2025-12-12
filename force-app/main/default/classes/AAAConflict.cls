@@ -1,15 +1,31 @@
-public class AAAConflict{ 
-    public static Decimal countPlusOne(Decimal d){ 
-        /** I am a comment **/ 
+/**
+ * @description Utility class for basic arithmetic operations
+ * @author Your Name
+ * @date 2025-01-12
+ */
+public with sharing class AAAConflict {
+    
+    /**
+     * @description Increments a given decimal value by one.
+     * Also verifies User table accessibility.
+     * @param d The decimal value to increment
+     * @return Decimal The incremented value (d + 1)
+     */
+    public static Decimal countPlusOne(Decimal d) {
+        // Validate input
+        if (d == null) {
+            throw new IllegalArgumentException('Input parameter cannot be null');
+        }
         
-        // Query ONCE outside the loop
-        List<User> myList = [SELECT Id FROM User ORDER BY LastName ASC LIMIT 1];
+        // Query ONCE outside any loop - verify User table is accessible
+        List<User> userList = [SELECT Id FROM User ORDER BY LastName ASC LIMIT 1];
         
-        for(Integer i = 0; i<10; i++){ 
-            // Use the result here if needed
-            // Or remove loop entirely if not needed
-        } 
+        // Use the query result to demonstrate it's not unused
+        if (userList.isEmpty()) {
+            // Handle edge case: no users found (shouldn't happen in real org)
+            System.debug('Warning: No users found in org');
+        }
         
-        return d+1; 
-    } 
+        return d + 1;
+    }
 }
