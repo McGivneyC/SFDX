@@ -17,8 +17,14 @@ public with sharing class AAAConflict {
             throw new IllegalArgumentException('Input parameter cannot be null');
         }
         
-        // Query ONCE outside any loop - verify User table is accessible
-        List<User> userList = [SELECT Id FROM User ORDER BY LastName ASC LIMIT 1];
+        // Query with enforced security - automatically strips inaccessible fields
+        List<User> userList = [
+            SELECT Id 
+            FROM User 
+            WITH SECURITY_ENFORCED 
+            ORDER BY LastName ASC 
+            LIMIT 1
+        ];
         
         // Use the query result to demonstrate it's not unused
         if (userList.isEmpty()) {
