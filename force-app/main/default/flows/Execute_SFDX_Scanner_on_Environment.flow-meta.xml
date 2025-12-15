@@ -32,6 +32,14 @@
             <name>gitJson</name>
         </outputParameters>
         <outputParameters>
+            <assignToReference>CredentialId</assignToReference>
+            <name>orgCredentialId</name>
+        </outputParameters>
+        <outputParameters>
+            <assignToReference>pipelineId</assignToReference>
+            <name>pipelineId</name>
+        </outputParameters>
+        <outputParameters>
             <assignToReference>platform</assignToReference>
             <name>pipelineType</name>
         </outputParameters>
@@ -46,10 +54,6 @@
         <outputParameters>
             <assignToReference>repositoryURI</assignToReference>
             <name>repositoryUri</name>
-        </outputParameters>
-        <outputParameters>
-            <assignToReference>slackTrace</assignToReference>
-            <name>stackTrace</name>
         </outputParameters>
         <outputParameters>
             <assignToReference>GitSuccess</assignToReference>
@@ -82,7 +86,7 @@
         <inputParameters>
             <name>parametersJSON</name>
             <value>
-                <stringValue>[   {     &quot;name&quot;: &quot;environmentId&quot;,     &quot;value&quot;: &quot;{!RecordId}&quot;   },   {     &quot;name&quot;: &quot;branchName&quot;,     &quot;value&quot;: &quot;{!BranchName}&quot;   },   {     &quot;name&quot;: &quot;git_json&quot;,     &quot;value&quot;: &quot;{$Context.Repository.Credential}&quot;   },   {     &quot;name&quot;: &quot;severityThreshold&quot;,     &quot;value&quot;: &quot;2&quot;   } ]</stringValue>
+                <stringValue>[   {     &quot;name&quot;: &quot;environmentId&quot;,     &quot;value&quot;: &quot;{!RecordId}&quot;   },   {     &quot;name&quot;: &quot;branchName&quot;,     &quot;value&quot;: &quot;{!BranchName}&quot;   },   {     &quot;name&quot;: &quot;git_json&quot;,     &quot;value&quot;: {!git_json}   },   {     &quot;name&quot;: &quot;severityThreshold&quot;,     &quot;value&quot;: &quot;2&quot;   } ]</stringValue>
             </value>
         </inputParameters>
         <nameSegment>copado__RunCopadoFunction</nameSegment>
@@ -358,6 +362,13 @@
     <variables>
         <name>GitSuccess</name>
         <dataType>Boolean</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+    <variables>
+        <name>pipelineId</name>
+        <dataType>String</dataType>
         <isCollection>false</isCollection>
         <isInput>false</isInput>
         <isOutput>false</isOutput>
