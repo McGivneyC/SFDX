@@ -8,7 +8,6 @@
             <user>jguila@copaboot1.com</user>
         </users>
     </queueMembers>
-    <queueRoutingConfig>Test_Routing_Config</queueRoutingConfig>
     <queueSobject>
         <sobjectType>Case</sobjectType>
     </queueSobject>
