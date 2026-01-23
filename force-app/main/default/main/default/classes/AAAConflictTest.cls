@@ -1,5 +1,4 @@
 @isTest 
-//I am a CONFLICT
 public class AAAConflictTest { 
  public static testmethod void testCountPlusOne(){ 
  Decimal input = 10; 
