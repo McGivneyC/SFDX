@@ -4,7 +4,7 @@
  * @date 2025-01-12
  */
 public with sharing class AAAConflict {
-    
+/** I am a comment 03/23/26 **/ 
     /**
      * @description Increments a given decimal value by one.
      * Also verifies User table accessibility.
@@ -17,21 +17,11 @@ public with sharing class AAAConflict {
             throw new IllegalArgumentException('Input parameter cannot be null');
         }
         
-        // Query with enforced security - automatically strips inaccessible fields
-        List<User> userList = [
-            SELECT Id 
-            FROM User 
-            WITH SECURITY_ENFORCED 
-            ORDER BY LastName ASC 
-            LIMIT 1
-        ];
+        for(Integer i = 0; i<10; i++){ 
+            // Use the result here if needed
+            // Or remove loop entirely if not needed
+        } 
         
-        // Use the query result to demonstrate it's not unused
-        if (userList.isEmpty()) {
-            // Handle edge case: no users found (shouldn't happen in real org)
-            System.debug('Warning: No users found in org');
-        }
-        
-        return d + 1;
+        return d+1; 
     }
 }
