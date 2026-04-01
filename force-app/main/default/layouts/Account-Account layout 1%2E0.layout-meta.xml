@@ -28,7 +28,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>New_Copado_Field__c</field>
+                <field>Field_C__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

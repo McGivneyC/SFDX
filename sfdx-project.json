@@ -20,7 +20,7 @@
   "name": "CopadoSFDX",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "64.0",
+  "sourceApiVersion": "65.0",
   "packageAliases": {
     "CopadoTips": "0Ho5e000000TNoiCAG",
     "CopadoTips@1.0.0-0-main": "04t5e000000SYfjAAG",
