@@ -1,9 +1,13 @@
 public class AAAConflict{ 
- public static Decimal countPlusOne(Decimal d){ 
- /** I am a conflict created in SFDX**/ 
- for(Integer i = 0; i<10; i++){ 
- List<User> myList = [SELECT Id FROM User ORDER BY LastName ASC LIMIT 1]; 
- } 
- return d+1; 
- } 
+    public static Decimal countPlusOne(Decimal d){ 
+        /** I am a comment 03/23/26 **/ 
+       
+        
+        for(Integer i = 0; i<10; i++){ 
+            // Use the result here if needed
+            // Or remove loop entirely if not needed
+        } 
+        
+        return d+1; 
+    } 
 }
