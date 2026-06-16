@@ -47,6 +47,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Copado_Test__c.MigrationTestDemo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Event.new__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -60,6 +65,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>CopadoTips__c-Copado Tips Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Copado_Test__c-Copado Test Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Event-Event Layout</layout>
