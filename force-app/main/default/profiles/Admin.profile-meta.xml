@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Profile xmlns="http://soap.sforce.com/2006/04/metadata"
+      xmlns:n1="http://www.w3.org/2001/XMLSchema-instance">
+    <custom>false</custom>
+    <description n1:nil="true" />
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Copado_Test__c.MigrationTestDemo__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <layoutAssignments>
+        <layout>Copado_Test__c-Copado Test Layout</layout>
+    </layoutAssignments>
+    <loginHours n1:nil="true" />
+    <userLicense>Salesforce</userLicense>
+</Profile>
