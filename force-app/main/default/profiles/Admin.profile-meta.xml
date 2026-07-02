@@ -30,6 +30,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
+    <description n1:nil="true" />
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.New_Copado_Field__c</field>
@@ -51,7 +52,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account Layout</layout>
+        <layout>Account-Account Nuevo</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CopadoTips__c-Copado Tips Layout</layout>

@@ -2,20 +2,10 @@
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata"
       xmlns:n1="http://www.w3.org/2001/XMLSchema-instance">
     <custom>true</custom>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Delete_Items__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    <description n1:nil="true" />
     <layoutAssignments>
-        <layout>Account-Account Layout</layout>
-        <recordType>Account.Contractor</recordType>
+        <layout>Account-Account Nuevo</layout>
     </layoutAssignments>
     <loginHours n1:nil="true" />
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Account.Contractor</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
     <userLicense>Salesforce</userLicense>
 </Profile>
