@@ -62,7 +62,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account Layout</layout>
+        <layout>Account-Account Nuevo</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CopadoTips__c-Copado Tips Layout</layout>
