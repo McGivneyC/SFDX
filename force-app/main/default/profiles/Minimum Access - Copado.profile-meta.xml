@@ -14,7 +14,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <layoutAssignments>
-        <layout>Account-Account Nuevo</layout>
+        <layout>Account-New Account</layout>
     </layoutAssignments>
     <loginHours n1:nil="true" />
     <userLicense>Salesforce</userLicense>
