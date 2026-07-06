@@ -13,8 +13,16 @@
         <field>Account.Copado_Dependency_Test__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Copado_Test__c.MigrationTestDemo__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-New Account</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Copado_Test__c-Copado Test Layout</layout>
     </layoutAssignments>
     <loginHours n1:nil="true" />
     <userLicense>Salesforce</userLicense>
