@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Account_Tier_Manager_Share</fullName>
+        <accessLevel>Read</accessLevel>
+        <accountSettings>
+            <caseAccessLevel>None</caseAccessLevel>
+            <contactAccessLevel>Read</contactAccessLevel>
+            <opportunityAccessLevel>None</opportunityAccessLevel>
+        </accountSettings>
+        <description>Shares Account records with Tier Manager role based on Account Source criteria</description>
+        <label>Account Tier Manager Share</label>
+        <sharedTo>
+            <role>Copado_User</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>AccountSource</field>
+            <operation>equals</operation>
+            <value>Other</value>
+        </criteriaItems>
+        <includeRecordsOwnedByAll>false</includeRecordsOwnedByAll>
+    </sharingCriteriaRules>
+</SharingRules>
