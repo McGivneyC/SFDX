@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
+        <fullName>Account_Tier_Change_Email_Alert</fullName>
+        <description>Email alert sent when Account Tier field is updated</description>
+        <protected>false</protected>
+        <recipients>
+            <type>accountOwner</type>
+        </recipients>
+        <senderType>CurrentUser</senderType>
+        <template>unfiled$public/ContactFollowUpSAMPLE</template>
+    </alerts>
+    <alerts>
         <fullName>Copado_Workflow_Alert_Test</fullName>
         <description>Copado Workflow Alert Test</description>
         <protected>false</protected>
@@ -24,4 +34,34 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/ContactFollowUpSAMPLE</template>
     </alerts>
+    <fieldUpdates>
+        <fullName>Account_Mark_Tier_Reviewed</fullName>
+        <description>Marks the Account as Tier Reviewed when the workflow fires</description>
+        <field>AccountSource</field>
+        <literalValue>Other</literalValue>
+        <name>Mark Tier Reviewed</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>false</reevaluateOnChange>
+    </fieldUpdates>
+    <rules>
+        <fullName>Account Tier Change Notification</fullName>
+        <actions>
+            <name>Account_Tier_Change_Email_Alert</name>
+            <type>Alert</type>
+        </actions>
+        <actions>
+            <name>Account_Mark_Tier_Reviewed</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.AccountSource</field>
+            <operation>notEqual</operation>
+            <value>Other</value>
+        </criteriaItems>
+        <description>Fires when Account Source changes and sends an email alert and updates a field</description>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
 </Workflow>
