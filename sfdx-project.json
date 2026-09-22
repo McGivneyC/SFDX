@@ -2,23 +2,11 @@
   "packageDirectories": [
     {
       "path": "force-app",
-      "package": "CopadoTips",
-      "versionName": "ver 0.1",
-      "versionNumber": "0.1.0.NEXT",
-      "default": true,
-      "versionDescription": ""
-    },
-    {
-      "path": "manual-task-enforcer",
-      "package": "ManualTaskEnforcer",
-      "versionName": "ver 0.1",
-      "versionNumber": "0.1.0.NEXT",
-      "default": false,
-      "versionDescription": ""
+      "default": true
     }
   ],
   "name": "CopadoSFDX",
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
-  "sourceApiVersion": "67.0"
+  "sourceApiVersion": "64.0"
 }
