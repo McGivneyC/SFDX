@@ -2,6 +2,7 @@
     <template if:true={defaultTip}>
         <div class="copado-tip-container">
             <!-- Use a span or div for clickable text styled as a link -->
+            <!-- Conflict -->
             <span class="link-like" onclick={navigateToRecord} data-id={defaultTip.Id}>
                 {defaultTip.TipCategory__c} - {defaultTip.Name}
             </span>
