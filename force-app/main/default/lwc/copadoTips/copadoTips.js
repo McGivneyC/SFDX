@@ -1,13 +1,12 @@
-import { LightningElement, wire, api } from 'lwc';
+import { LightningElement, wire, track, api } from 'lwc';
 import getTips from '@salesforce/apex/CopadoTipController.getTips';
 import { refreshApex } from '@salesforce/apex';
 import { NavigationMixin } from 'lightning/navigation';
 
 export default class CopadoTips extends NavigationMixin(LightningElement) {
-    defaultTip = null;
-    randomTip = null;
-    showNoTipMessage = false;
-    errorMessage = '';
+    @track defaultTip;
+    @track randomTip;
+    @track showNoTipMessage = false;
     wiredTipsResult;
 
     @wire(getTips)
@@ -19,14 +18,14 @@ export default class CopadoTips extends NavigationMixin(LightningElement) {
             this.randomTip = data.randomTip;
             this.showNoTipMessage = !data.defaultTip && !data.randomTip;
         } else if (error) {
-            this.errorMessage = 'Failed to retrieve tips. Please try again later.';
             this.showNoTipMessage = true;
-            console.error('Error fetching tips:', error);
         }
     }
 
     navigateToRecord(event) {
         const recordId = event.currentTarget.dataset.id;
+        console.log('Navigating to record ID:', recordId);
+    
         this[NavigationMixin.Navigate]({
             type: 'standard__recordPage',
             attributes: {
