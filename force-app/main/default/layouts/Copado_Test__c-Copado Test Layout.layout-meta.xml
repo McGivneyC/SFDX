@@ -18,6 +18,10 @@
                 <behavior>Edit</behavior>
                 <field>MigrationTestDemo__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Copado_Bug_Level__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
