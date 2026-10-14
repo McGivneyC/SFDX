@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>Bug1</fullName>
+        <default>false</default>
+        <label>Bug1</label>
+    </customValue>
+    <customValue>
+        <fullName>Bug2</fullName>
+        <default>false</default>
+        <label>Bug2</label>
+    </customValue>
+    <customValue>
+        <fullName>Bug3</fullName>
+        <default>false</default>
+        <label>Bug3</label>
+    </customValue>
+    <customValue>
+        <fullName>Bug4</fullName>
+        <default>false</default>
+        <label>Bug4</label>
+    </customValue>
+    <customValue>
+        <fullName>Bug5</fullName>
+        <default>false</default>
+        <label>Bug5</label>
+    </customValue>
+    <masterLabel>Copado_Bug</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>
